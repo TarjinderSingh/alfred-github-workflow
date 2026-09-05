@@ -412,7 +412,7 @@ final class Search
                     }
                     break;
                 case '#':
-                    $issues = Fetcher::streamApi('/repos/' . $parts[0] . '/issues?sort=updated&state=all', new FetchOptions(fields: [
+                    $issues = Fetcher::streamApi('/repos/' . $parts[0] . '/issues?sort=updated&state=open', new FetchOptions(fields: [
                         'number', 'title', 'html_url', 'updated_at',
                         'pull_request' => [],
                     ]));
