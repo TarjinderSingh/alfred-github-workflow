@@ -6,15 +6,12 @@ assert(isset($argv[1]));
 $query = trim($argv[1]);
 
 if ('>' !== $query[0] && !str_starts_with($query, 'e >')) {
-    if (str_starts_with($query, 'git@github.com:')) {
+    if (str_ends_with($query, '.git')) {
         $clipboard = popen('pbcopy', 'w');
         fwrite($clipboard, $query);
         pclose($clipboard);
 
         return;
-    }
-    if ('.git' == substr($query, -4)) {
-        $query = 'x-github-client://openRepo/' . substr($query, 0, -4);
     }
     exec('open ' . escapeshellarg($query));
 

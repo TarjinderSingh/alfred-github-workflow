@@ -489,15 +489,15 @@ final class Search
             );
             Workflow::addItemIfMatches(Item::create()
                 ->title($parts[0] . ' clone')
-                ->subtitle('Clone this repo')
-                ->icon('clone')
-                ->arg('/' . $parts[0] . '.git')
-            );
-            Workflow::addItemIfMatches(Item::create()
-                ->title($parts[0] . ' clone ssh')
                 ->subtitle('Copy SSH clone URL')
                 ->icon('clone')
                 ->arg('git@github.com:' . $parts[0] . '.git')
+            );
+            Workflow::addItemIfMatches(Item::create()
+                ->title($parts[0] . ' clone https')
+                ->subtitle('Copy HTTPS clone URL')
+                ->icon('clone')
+                ->arg('/' . $parts[0] . '.git')
             );
         }
     }
